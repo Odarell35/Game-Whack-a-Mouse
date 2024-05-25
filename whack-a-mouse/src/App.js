@@ -1,16 +1,17 @@
+// App.js
 import React from 'react';
-import './App.css';
-import logo from './Img/logo.png';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from './Home';
+import GameBoard from './Gameboard';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-       <img src={logo} alt='gameLogo'/>
-       <button class="btn-play">PLAY</button>
-      </header>
-      
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/next" element={<GameBoard />} />
+      </Routes>
+    </Router>
   );
 }
 

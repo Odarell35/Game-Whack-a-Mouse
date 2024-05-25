@@ -1,7 +1,7 @@
 .mouse-hole {
     width: 150px;
     height: 150px;
-    background-image: url(../Img/2.png);
+    background-image: url(./Img/2.png);
     background-position: center;
     background-size: cover;
     display: flex;
@@ -12,6 +12,6 @@
   }
   
   .mouse {
-    background-image: url(../Img/mice.png);
+    background-image: url(./Img/mice.png);
     width: 50px;
   }
