@@ -28,10 +28,3 @@ To get started with the Whack-A-Mouse game, follow these steps:
 
 - [Node.js](https://nodejs.org/) (includes npm)
 
-### Installation
-
-1. **Clone the repository:**
-
-   ```bash
-   git clone https://github.com/your-username/whack-a-mouse.git
-   cd whack-a-mouse
