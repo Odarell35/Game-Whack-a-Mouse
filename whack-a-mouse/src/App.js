@@ -6,10 +6,12 @@ import GameBoard from './Gameboard';
 
 function App() {
   return (
+
+
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/next" element={<GameBoard />} />
+        <Route path="/next" element={<GameBoard />}/>
       </Routes>
     </Router>
   );
