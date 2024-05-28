@@ -56,7 +56,8 @@ body{
   grid-row-gap: 0px;
 
       }
- .div2 { grid-area: 1 / 2 / 2 / 3; }
+ .div2 
+ { grid-area: 1 / 2 / 2 / 3; }
 .timerBar{
   display: block;
   width: 400px;
