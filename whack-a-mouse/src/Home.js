@@ -12,7 +12,7 @@ function Home() {
   return (
     <div className="App">
       <header className="App-header">
-       <img src={logo} class="logo" alt='gameLogo'/>
+       <img src={logo} class="home-logo" alt='gameLogo'/>
        <button onClick={handleClick} class="btn-play">PLAY</button>
       </header>
       
