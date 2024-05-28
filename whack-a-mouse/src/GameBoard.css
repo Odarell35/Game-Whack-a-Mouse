@@ -4,22 +4,24 @@
 
 body{
   height: 100vh;
+  background-color: rgb(0, 0, 0);
 }
 
 .game{
   width: 70%;
   margin-left: auto;
   margin-right: auto;
-  background-image: url(./Img/background.png);
   height: 100%;
 }
 .game-board {
     display: grid;
-    grid-template-columns: repeat(3, 200px);
+    grid-template-columns: repeat(3, 120px);
     grid-gap: 10px;
     margin-top: 0px;
     justify-content: center;
-    border: #d9bd34 solid 9px;
+    background-image: url(./Img/soil.png);
+    width: 400px;
+    border: white solid 2px;
   }
   
   .score {
@@ -43,30 +45,40 @@ body{
     font-family: "Permanent Marker", cursive;
     text-align: center;
     font-size: 35px;
-    margin: 20px 0 0 25px;
+   margin: 20px 0 0 25px;
     
-  }
-  .head{
-
-       
-          display: grid;
-          grid-template-columns: 0.4fr 2fr;
-          grid-template-rows: 2fr;
-          grid-column-gap: 0px;
-          grid-row-gap: 0px;
+}
+.head{
+  display: grid;
+  grid-template-columns: 0.4fr 2fr;
+  grid-template-rows: 2fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
 
       }
  .div2 { grid-area: 1 / 2 / 2 / 3; }
-.timer{
-  border: #00ccff solid 2px;
-  width: 150px;
+.timerBar{
+  display: block;
+  width: 400px;
+  border-radius: 100px;
+  border: #ffffff solid 4px;
+  height: 30px;
   margin-right: 200px;
+  background-color: #ccc;
+  overflow: hidden;
 }
 
 .score-timer{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+.timer{
+  display: block;
+  background-color: orange;
+  height: 30px;
+  width: 100%;
+  transition: width 0.2s ease-in-out;
 }
 .score{
   background-color: orange;
@@ -105,6 +117,7 @@ body{
 
 .icons{
   font-size: 25px;
+  color: white;
 }
 .buttons{
 display: flex;
