@@ -45,7 +45,8 @@ body{
     font-family: "Permanent Marker", cursive;
     text-align: center;
     font-size: 35px;
-   margin: 20px 0 0 25px;
+    margin: 20px 0 0 25px;
+    color: #ccc;
     
 }
 .head{

@@ -67,7 +67,7 @@ const GameBoard = () => {
   return (
     <div>
       <header className='head'>
-        <div className="level">Level 5</div>
+        <div className="level">Level Easy </div>
         <div className='div2'>
           <div className='title'>WHACK-A-MOUSE!!</div>
           <div className='score-timer'>
