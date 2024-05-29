@@ -1,16 +1,27 @@
 .mouse-hole {
     width: 150px;
     height: 150px;
-    background-image: url('./Img/2.png');
+    background-image: url('./Img/bubble1.png');
     background-position: center;
-    background-size: cover;
+    background-size:contain;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     overflow: hidden;
   }
-  
+  .m1 {
+    width: 150px;
+    height: 150px;
+    background-image: url('./Img/bubble1.png');
+    background-position: center;
+    background-size:contain;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    overflow: hidden;
+  }
   .Mouse-pawn {
     
     width: 180px;

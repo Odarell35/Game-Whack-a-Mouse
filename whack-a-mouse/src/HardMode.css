@@ -1,0 +1,156 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Permanent+Marker&display=swap');
+
+bodyh{
+  height: 100vh;
+  background-color: rgb(24, 23, 23);
+}
+
+.gameh{
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100%;
+  width: 200px;
+  
+}
+.game-boardh {
+    display: grid;
+    grid-template-columns: repeat(3, 120px);
+    grid-gap: 10px;
+    margin-top: 0px;
+    justify-content: center;
+    background-image: url(./Img/fire1.jpg);
+    width: 450px;
+    border: white solid 2px;
+  }
+  
+  .scoreh {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    font-family: "Permanent Marker", cursive;
+
+  }
+  .titleh{
+    font-family: "Permanent Marker", cursive;
+    font-size: 75px;
+    background:linear-gradient(to bottom, rgb(243, 7, 7), rgba(248, 252, 22, 0.74));
+    -webkit-background-clip: text;
+    
+    color: transparent;
+    font-weight: 900;
+  }
+  .levelh {
+    width: 100px;
+    height: 150px;
+    grid-area: 1 / 1 / 2 / 2;
+    font-family: "Permanent Marker", cursive;
+    text-align: center;
+    font-size: 35px;
+    margin: 20px 0 0 25px;
+    color: #eeeeeef5;
+    
+}
+.headh{
+  display: grid;
+  grid-template-columns: 0.4fr 2fr;
+  grid-template-rows: 2fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+
+      }
+ .div2h 
+ { grid-area: 1 / 2 / 2 / 3; }
+.timerBarh{
+  display: block;
+  width: 400px;
+  border-radius: 100px;
+  border: #ff0202 solid 4px;
+  height: 30px;
+  margin-right: 200px;
+  background-color: #ff0202;
+  overflow: hidden;
+}
+
+.score-timerh{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.timerh{
+  display: block;
+  background-color: rgba(255, 0, 0, 0.411);
+  height: 30px;
+  width: 100%;
+  transition: width 0.2s ease-in-out;
+}
+.scoreh{
+  background-color: #f05526;
+  border-radius: 10px;
+  width: 180px;
+  height: 55px;
+  text-align:middle;
+  font-weight: 900;
+}
+.high-scoreh{
+  background-color: #f05526;
+  border-radius: 10px;
+  width: 215px;
+  height: 55px;
+  text-align: center;
+  font-weight: 900;
+  font-family: "Permanent Marker", cursive;
+}
+
+.btn-starth, .btn-stoph {
+  background: #6ef005;
+  background-image: -webkit-linear-gradient(top, #faf62cfd, #ff0000);
+  background-image: -moz-linear-gradient(top, #faf62cfd, #ff0000);
+  background-image: -ms-linear-gradient(top,#faf62cfd, #ff0000);
+  background-image: -o-linear-gradient(top, #faf62cfd, #ff0000);
+  background-image: linear-gradient(to bottom, #faf62cfd, #ff0000);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: "Permanent Marker", cursive;
+  color: #292329;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.btn-starth:hover, .btn-stoph:hover {
+  background: #eafcae;
+  background-image: -webkit-linear-gradient(top, #fc0c0c, #f21111);
+  background-image: -moz-linear-gradient(top,  #fc0c0c, #f21111);
+  background-image: -ms-linear-gradient(top,  #fc0c0c, #f21111);
+  background-image: -o-linear-gradient(top,  #fc0c0c, #f21111);
+  background-image: linear-gradient(to bottom,  #fc0c0c, #f21111);
+  text-decoration: none;
+}
+
+.iconsh{
+  font-size: 40px;
+  color: white;
+}
+.buttonsh{
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: flex-end;
+margin-top: 50px;
+gap: 20px;
+}
+.m1 {
+    width: 150px;
+    height: 150px;
+    background-image: url('./Img/ring3.png');
+    background-position: center;
+    background-size:contain;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    overflow: hidden;
+  }

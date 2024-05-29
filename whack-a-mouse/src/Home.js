@@ -7,7 +7,9 @@ function Home() {
     const navigate = useNavigate();
     const handleClick = () => {
         navigate('/GameMode');
+    
     };
+    
     
   return (
     <div className="App">
