@@ -1,15 +1,19 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
+import { addHighScore, getHighScores } from './scorestorage';
 import Mouse from './mouse';
 import './GameBoard.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHourglass } from '@fortawesome/free-solid-svg-icons';
 
+
 const GameBoard = () => {
   const [mice, setMice] = useState(Array(9).fill(false));
   const [score, setScore] = useState(0);
+  const [highScores, setHighScores] = useState([]);
   const [timeLeft, setTimeLeft] = useState(60);
-  const [gameOver, setGameOver] = useState(false);
+  const [gameOver,setGameOver] = useState(false);
   const [gameStarted, setGameStarted] = useState(false);
+  
   let mouseInterval, timerInterval;
 
   const startGame = () => {
@@ -24,6 +28,7 @@ const GameBoard = () => {
     clearInterval(timerInterval);
     setGameOver(true);
     setGameStarted(false);
+    submitScore();
   };
 
   const handleMouseClick = (index) => {
@@ -64,6 +69,21 @@ const GameBoard = () => {
     }
   }, [gameStarted]);
 
+  	useEffect(() => {// Retrieve high scores on component mount
+    	getHighScores().then((scores) => setHighScores(scores));
+ 	 	}, []);
+
+		const submitScore = async () => {
+			await addHighScore('Player', score);
+			// Update high scores after submitting
+
+			const updateScores = await getHighScores();
+      updateScores.push({ user: 'Player', score });
+      updateScores.sort((a, b) => b.score - a.score);
+      const highestScore = updateScores.length > 0 ? updateScores[0].score : 0;
+			setHighScores([highestScore]);
+		};
+
   return (
     <div>
       <header className='head'>
@@ -72,7 +92,8 @@ const GameBoard = () => {
           <div className='title'>WHACK-A-MOUSE!!</div>
           <div className='score-timer'>
             <div className="score">Score: {score}</div>
-            <FontAwesomeIcon className='icons' icon={faHourglass} />
+			      <h2 className='high-score'>High Scores: {highScores.length > 0 ? highScores[0].score : 0}</h2>
+      		  <FontAwesomeIcon className='icons' icon={faHourglass} />
             <span className='timerBar'>
             <span className="timer" style={{ width: `${(timeLeft / 60) * 100}%` }}></span>
             </span>
@@ -88,7 +109,7 @@ const GameBoard = () => {
         </div>
         <div className='buttons'>
           <button className="btn-start" onClick={startGame} disabled={gameStarted}>START</button>
-          <button className="btn-stop" onClick={stopGame} disabled={!gameStarted}>STOP</button>
+          <button className="btn-stop" onClick={stopGame} disabled={!gameStarted}>QUIT</button>
         </div>
       </main>
     </div>

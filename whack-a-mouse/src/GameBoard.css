@@ -35,6 +35,7 @@ body{
     font-size: 75px;
     background:linear-gradient(to bottom, red, rgb(57, 255, 40));
     -webkit-background-clip: text;
+    
     color: transparent;
     font-weight: 900;
   }
@@ -83,6 +84,13 @@ body{
   transition: width 0.2s ease-in-out;
 }
 .score{
+  background-color: orange;
+  border-radius: 10px;
+  width: 150px;
+  text-align: center;
+  font-weight: 900;
+}
+.high-score{
   background-color: orange;
   border-radius: 10px;
   width: 150px;

@@ -1,0 +1,18 @@
+{
+    "env": {
+      "browser": true,
+      "es6": true,
+      "node": true
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+      "ecmaVersion": 2020,
+      "sourceType": "module"
+    },
+    "rules": {
+      "no-unused-vars": "off", // Disables no-unused-vars rule
+      "no-mixed-spaces-and-tabs": "off", // Disables no-mixed-spaces-and-tabs rule
+      "indent": "off" // Disables indent rule
+    }
+    
+  }
