@@ -8,7 +8,7 @@ export const addHighScore = (user, score) => {
   push(highScoresRef, { user, score });
 };
 
-export const getHighScores = async (limit = 10) => {
+export const getHighScores = async (limit = 100) => {
   try {
     const highScoresRef = ref(database, 'highscores');
     const highScoresQuery = query(highScoresRef, orderByChild('score'), limitToLast(limit));
