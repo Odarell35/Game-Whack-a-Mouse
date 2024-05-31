@@ -1,19 +1,28 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { addHighScore, getHighScores } from './scorestorage';
-import Mouse from './mouse';
-import './MediumMode.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHourglass } from '@fortawesome/free-solid-svg-icons';
+import Mouse from './mouse-medium.js';
+import './medium.css';
+import './Home.js';
 
+// Inline Popup component
+const Popup = ({ children, onClose }) => (
+  <div className="popup-overlay">
+    <div className="popup-content">
+      {children}
+      <button className="close-button" onClick={onClose}>Close</button>
+    </div>
+  </div>
+);
 
-const MediumMode = () => {
+const MediumBoard = () => {
   const [mice, setMice] = useState(Array(9).fill(false));
   const [score, setScore] = useState(0);
   const [highScores, setHighScores] = useState([]);
   const [timeLeft, setTimeLeft] = useState(45);
-  const [gameOver,setGameOver] = useState(false);
+  const [gameOver, setGameOver] = useState(false);
   const [gameStarted, setGameStarted] = useState(false);
-  
+
   let mouseInterval, timerInterval;
 
   const startGame = () => {
@@ -60,7 +69,7 @@ const MediumMode = () => {
           }
           return prevTimeLeft - 1;
         });
-      }, 500);
+      }, 1000);
 
       return () => {
         clearInterval(mouseInterval);
@@ -69,51 +78,67 @@ const MediumMode = () => {
     }
   }, [gameStarted]);
 
-  	useEffect(() => {// Retrieve high scores on component mount
-    	getHighScores().then((scores) => setHighScores(scores));
- 	 	}, []);
+  useEffect(() => {
+    getHighScores().then((scores) => setHighScores(scores));
+  }, []);
 
-		const submitScore = async () => {
-			await addHighScore('Player', score);
-			// Update high scores after submitting
+  const submitScore = async () => {
+    await addHighScore('Player', score);
+    const updatedScores = await getHighScores();
+    updatedScores.push({ user: 'Player', score });
+    updatedScores.sort((a, b) => b.score - a.score);
+    setHighScores(updatedScores);
+  };
 
-			const updateScores = await getHighScores();
-      updateScores.push({ user: 'Player', score });
-      updateScores.sort((a, b) => b.score - a.score);
-      const highestScore = updateScores.length > 0 ? updateScores[0].score : 0;
-			setHighScores([highestScore]);
-		};
+  const navigate = useNavigate();
+  const handleClick1 = () => {
+    navigate('/');
+  };
 
   return (
     <div>
-      <header className='headm'>
-        <div className="levelm">Level Medium </div>
-        <div className='div2m'>
-          <div className='titlem'>WHACK-A-MOUSE!!</div>
-          <div className='score-timerm'>
-            <div className="scorem">Score: {score}</div>
-			      <h2 className='high-scorem'>High Score: {highScores.length > 0 ? highScores[0].score : 0}</h2>
-      		  <FontAwesomeIcon className='iconsm' icon={faHourglass} />
-            <span className='timerBarm'>
-            <span className="timerm" style={{ width: `${(timeLeft / 45) * 100}%` }}></span>
-            </span>
-
+      {gameOver && (
+        <Popup onClose={() => setGameOver(false)}>
+          <h2>Game Over!</h2>
+          <p>Your score: {score}</p>
+          <button onClick={() => { setGameOver(false); startGame(); }}>Play Again</button>
+          <button onClick={handleClick1}>Home</button>
+        </Popup>
+      )}
+      <div className="container">
+        <header className="head">
+          <div className="level">
+            <div className="level-indicator">
+              <div className="level-text">Medium</div>
+              <div className="level-label">LEVEL</div>
+            </div>
+            <div className="back-button" onClick={handleClick1}>
+              <span className="back-icon">&#8592;</span>
+            </div>
           </div>
-        </div>
-      </header>
-      <main>
-        <div className="game-boardm">
-          {mice.map((isMouse, index) => (
-            <Mouse key={index} index={index} isMouse={isMouse} handleMouseClick={handleMouseClick} />
-          ))}
-        </div>
-        <div className='buttonsm'>
-          <button className="btn-startm" onClick={startGame} disabled={gameStarted}>START</button>
-          <button className="btn-stopm" onClick={stopGame} disabled={!gameStarted}>QUIT</button>
-        </div>
-      </main>
+          <div className="title">WHACK-A-MOUSE!!</div>
+          <div className="score-timer">
+            <span className="timerBar">
+              <span className="timer" style={{ width: `${(timeLeft / 45) * 100}%` }}></span>
+            </span>
+            <div className="high-score">
+              <span className="high-score-icon">&#127942;</span>
+              <span className="high-score-value">HIGHSCORE: {highScores.length > 0 ? highScores[0].score : 0}</span>
+            </div>
+          </div>
+        </header>
+        <section className="game-board">
+          <div className="game-area">
+            {mice.map((isMouse, index) => (
+              <Mouse key={index} index={index} isMouse={isMouse} handleMouseClick={handleMouseClick} />
+            ))}
+          </div>
+          <button className="start-button" onClick={startGame} disabled={gameStarted}>Start</button>
+          <button className="start-button" onClick={stopGame} disabled={!gameStarted}>Pause</button>
+        </section>
+      </div>
     </div>
   );
 };
 
-export default MediumMode;
+export default MediumBoard;

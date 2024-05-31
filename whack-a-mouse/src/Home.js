@@ -3,13 +3,13 @@ import './Home.css';
 import logo from './Img/logo.png';
 import { useNavigate } from 'react-router-dom';
 
-function Home() {
+function FirstPage() {
     const navigate = useNavigate();
     const handleClick = () => {
         navigate('/GameMode');
     
     };
-    
+       
     
   return (
     <div className="App">
@@ -22,4 +22,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default FirstPage;

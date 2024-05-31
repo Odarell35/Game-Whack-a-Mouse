@@ -1,31 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { addHighScore, getHighScores } from './scorestorage';
-import Mouse from './mouse-hard.js';
-import './Hardmode.css';
+import Mouse from './mouse-easy';
+import './easy.css';
+import './Home'; // Ensure this is correctly pointing to the Home component
 
-const Popup = ({ children, onClose }) => (
-  <div className="popup-overlay">
-    <div className="popup-content">
-      {children}
-      <button className="close-button" onClick={onClose}>Close</button>
-    </div>
-  </div>
-);
-
-const HardBoard = () => {
+const EasyBoard = () => {
   const [mice, setMice] = useState(Array(9).fill(false));
   const [score, setScore] = useState(0);
   const [highScores, setHighScores] = useState([]);
-  const [timeLeft, setTimeLeft] = useState(30);
+  const [timeLeft, setTimeLeft] = useState(60);
   const [gameOver, setGameOver] = useState(false);
   const [gameStarted, setGameStarted] = useState(false);
-
+  
   let mouseInterval, timerInterval;
 
   const startGame = () => {
     setScore(0);
-    setTimeLeft(30);
+    setTimeLeft(60);
     setGameOver(false);
     setGameStarted(true);
   };
@@ -54,7 +46,7 @@ const HardBoard = () => {
         const randomIndex = Math.floor(Math.random() * 9);
         newMice[randomIndex] = true;
         setMice(newMice);
-      }, 250);
+      }, 1000);
 
       timerInterval = setInterval(() => {
         setTimeLeft((prevTimeLeft) => {
@@ -90,7 +82,7 @@ const HardBoard = () => {
 
   const navigate = useNavigate();
   const handleClick1 = () => {
-    navigate('/');
+    navigate('/Home');
   };
 
   return (
@@ -99,7 +91,7 @@ const HardBoard = () => {
         <Popup>
           <h2>Game Over!</h2>
           <p>Your score: {score}</p>
-          <button onClick={() => { setGameOver(false); startGame(); }}>Play Again</button>
+          <button onClick={() => setGameOver(false)}>Play Again</button>
           <button onClick={handleClick1}>Home</button>
         </Popup>
       )}
@@ -107,17 +99,17 @@ const HardBoard = () => {
         <header className="head">
           <div className="level">
             <div className="level-indicator">
-              <div className="level-text">Hard</div>
+              <div className="level-text">Easy</div>
               <div className="level-label">LEVEL</div>
             </div>
-            <div className="back-button" onClick={handleClick1}>
+            <div className="back-button">
               <span className="back-icon">&#8592;</span>
             </div>
           </div>
           <div className="title">WHACK-A-MOUSE!!</div>
           <div className="score-timer">
             <span className="timerBar">
-              <span className="timer" style={{ width: `${(timeLeft / 30) * 100}%` }}></span>
+              <span className="timer" style={{ width: `${(timeLeft / 60) * 100}%` }}></span>
             </span>
             <div className="high-score">
               <span className="high-score-icon">&#127942;</span>
@@ -139,4 +131,4 @@ const HardBoard = () => {
   );
 };
 
-export default HardBoard;
+export default EasyBoard;

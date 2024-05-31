@@ -27,7 +27,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgb(242, 82, 28);
+    background-color: lightblue;
     padding: 10px;
     border-radius: 10px;
 }
@@ -57,7 +57,7 @@ body {
     font-weight: bold;
     margin-top: 20px;
     margin-bottom: 20px;
-    color: rgb(255, 25, 0);
+    color: orange;
 }
 
 .score-timer {
@@ -109,7 +109,7 @@ body {
 }
 
 .start-button {
-    background-color: rgb(255, 0, 0);
+    background-color: orange;
     border: none;
     border-radius: 10px;
     padding: 10px 20px;

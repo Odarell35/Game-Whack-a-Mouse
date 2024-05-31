@@ -1,26 +1,21 @@
 // App.js
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from './Home';
-import GameBoard from './Gameboard';
 import GameMode from './GameMode';
-import MediumMode from './MediumMode'
-import HardMode from './HardMode';
+import EasyMode from './EasyMode';
+import MediumMode from './Mediummode';
+import HardMode from './Hardmode';
+import FirstPage from './Home';
 
 function App() {
   return (
-
-
-    <Router>
+   <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<FirstPage />} />
         <Route path="/GameMode" element={<GameMode />}/>
-        <Route path="/GameBoard" element={<GameBoard />}/>
+        <Route path="/EasyMode" element={<EasyMode />}/>
         <Route path="/MediumMode" element={<MediumMode />}/>
-        <Route path="/HardMode" element={<HardMode />}/>
-        
-
-      </Routes>
+        <Route path="/HardMode" element={<HardMode />}/>      </Routes>
     </Router>
   );
 }

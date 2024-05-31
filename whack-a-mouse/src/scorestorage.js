@@ -1,7 +1,7 @@
 // scoresService.js
 
 import database from './firebase';
-import { ref, push, query, orderByChild, limitToLast, get } from 'firebase/database';
+import { ref, push, query, orderByChild, limitToLast, get } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
 export const addHighScore = (user, score) => {
   const highScoresRef = ref(database, 'highscores');

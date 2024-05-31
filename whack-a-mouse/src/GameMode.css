@@ -1,49 +1,76 @@
-@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #000;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
 
-.App {
+.container {
+    position: relative;
     text-align: center;
-  }
-  
-  .App-header {
-     /* background-image: url(../Img/background.png);  */
-    background: rgb(246,243,145);
-    background: linear-gradient(90deg, rgba(246,243,145,1) 0%, rgba(150,228,126,1) 35%, rgba(176,255,245,1) 100%);
-    min-height: 100vh;
+}
+
+.mouse {
+    width: 75%;
+}
+
+.buttons {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-  }
-  .btn { 
-    background: #d9bd34;
-    background-image: -webkit-linear-gradient(top, #d9bd34, #f01616);
-    background-image: -moz-linear-gradient(top, #d9bd34, #f01616);
-    background-image: -ms-linear-gradient(top, #d9bd34, #f01616);
-    background-image: -o-linear-gradient(top, #d9bd34, #f01616);
-    background-image: linear-gradient(to bottom, #d9bd34, #f01616);
-    -webkit-border-radius: 28;
-    -moz-border-radius: 28;
-    border-radius: 28px;
+    position: absolute;
+    top: 65%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+    
+}
+
+.button {
+    width: 250px;
+    height: 70px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 900;
+    font-size: 45px;
     font-family: "Permanent Marker", cursive;
-    color: #292329;
-    font-size: 35px;
-    padding: 10px 20px 10px 20px;
-    text-decoration: none;
-    margin-bottom: 10px;
-  }
-  
-  .btn:hover {
-    background: #fc3c7c;
-    background-image: -webkit-linear-gradient(top, #fc3c7c, #9c34d9);
-    background-image: -moz-linear-gradient(top, #fc3c7c, #9c34d9);
-    background-image: -ms-linear-gradient(top, #fc3c7c, #9c34d9);
-    background-image: -o-linear-gradient(top, #fc3c7c, #9c34d9);
-    background-image: linear-gradient(to bottom, #fc3c7c, #9c34d9);
-    text-decoration: none;
-  }
-  .logo{
-    width: 300px;
-  }
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+
+.red {
+    background-color: #ff4747;
+}
+
+.pink {
+    background-color: #ff69b4;
+}
+
+.blue {
+    background-color: #1e90ff;
+}
+
+.back-arrow {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    cursor: pointer;
+    width: 100px;
+}
+
+.button:hover {
+    transform: scale(1.1);
+}
+
+.button:active {
+    transform: scale(0.9);
+}
+
+.back-arrow:hover {
+    transform: rotate(-90deg);
+}

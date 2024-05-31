@@ -1,14 +1,14 @@
 import React from 'react';
-import './GameMode.css';
-import './MediumMode.css';
-import './HardMode.css';
-import logo from './Img/logo.png';
+import './Gamemode.css';
+import './medium.css';
+import './Hardmode.css';
 import { useNavigate } from 'react-router-dom';
+import mousehammer from './Img/mouse-hammer.png';
 
 function Home() {
     const navigate = useNavigate();
     const handleClick1 = () => {
-        navigate('/GameBoard');
+        navigate('/EasyMode');
     };
     const handleClick2 = () => {
       navigate('/MediumMode');
@@ -16,18 +16,21 @@ function Home() {
   const handleClick3 = () => {
     navigate('/HardMode');
 };
+const handleClick4 = () => {
+  navigate('/');
+};
     
   return (
-    <div className="App">
-      <header className="App-header">
-       <img src={logo} class="logo" alt='gameLogo'/>
-       <button onClick={handleClick1} class="btn easy">EASY</button>
-       <button onClick={handleClick2} class="btn medium">MEDIUM</button>
-       <button onClick={handleClick3} class="btn hard">HARD</button>
-      </header>
-      
-    </div>
-  );
+    <div class="container">
+      <img src={mousehammer} alt="Mouse Character" class="mouse"/>
+      <div class="buttons">
+        <button onclick={handleClick1} class="button red">EASY</button>
+        <button onclick={handleClick2} class="button pink">MEDIUM</button>
+        <button onclick={handleClick3} class="button blue">HARD</button>
+      </div>
+      <img src="./Img/back-arrow.png" onclick={handleClick4} alt="Back Arrow" class="back-arrow"/>
+  </div>
+);
 }
 
 export default Home;
