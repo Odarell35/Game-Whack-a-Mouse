@@ -1,0 +1,18 @@
+.mouse-holee {
+    width: 80px;
+    height: 80px;
+    background-image: url('./Img/bubble2.png');
+    background-position: center;
+    background-size:contain;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    overflow: hidden;
+  }
+  
+  .Mouse-pawn {
+    
+    width: 100px;
+    
+  }
