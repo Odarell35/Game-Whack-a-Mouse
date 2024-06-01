@@ -1,6 +1,6 @@
 .mouse-holeh {
-    width: 115%;
-    height: 100%;
+    width: 90%;
+    height: 90%;
     background-image: url('./Img/ring1.png');
     background-position: center;
     background-size: cover;
@@ -11,8 +11,8 @@
     overflow: hidden;
   }
   
-  .Mouse-pawn {
+  .Mouse-pawnh {
     
-    width: 150px;
+    width: 130px;
     
   }

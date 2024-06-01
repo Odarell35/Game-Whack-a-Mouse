@@ -3,7 +3,7 @@
     height: 90%;
     background-image: url('./Img/bubble1.png');
     background-position: center;
-    background-size:contain;
+    background-size:cover;
     display: flex;
     align-items: center;
     justify-content: center;
