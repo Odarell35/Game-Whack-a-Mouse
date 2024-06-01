@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { addHighScore, getHighScores } from './scorestorage';
 import Mouse from './mouse-hard.js';
-import './hardmode.css';
+import './Hardmode.css';
 import './Home.js';
 import GameOverPopup from './GameOverPopup.js';
 import backArrow from './Img/back-arrow.png';
