@@ -27,7 +27,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgb(242, 82, 28);
+    background-color: rgb(242, 224, 28);
     padding: 10px;
     border-radius: 10px;
 }
@@ -39,12 +39,12 @@ body {
 
 .level-label {
     font-size: 14px;
+    width: 100px;
 }
 
-.back-button {
-    background-color: red;
-    border-radius: 50%;
-    padding: 10px;
+.back-arrow-hard{
+    margin-bottom: 10px;
+    width: 100px;
 }
 
 .back-icon {
@@ -57,7 +57,7 @@ body {
     font-weight: bold;
     margin-top: 20px;
     margin-bottom: 20px;
-    color: rgb(255, 25, 0);
+    color: rgb(247, 200, 28);
 }
 
 .score-timer {
@@ -76,7 +76,7 @@ body {
 }
 
 .timer {
-    background-color: orange;
+    background-color: rgb(220, 249, 87);
     width: 50%;
     height: 100%;
 }
@@ -102,8 +102,12 @@ body {
 }
 
 .game-area {
-    width: 500px;
-    height: 300px;
+    width: 350px;
+    height: 350px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3 1fr);
+    gap: 10px;
     border: 2px solid white;
     margin-bottom: 20px;
 }

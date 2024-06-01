@@ -2,32 +2,34 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { addHighScore, getHighScores } from './scorestorage';
 import Mouse from './mouse-hard.js';
-import './Hardmode.css';
+import './hardmode.css';
+import './Home.js';
+import GameOverPopup from './GameOverPopup.js';
+import backArrow from './Img/back-arrow.png';
 
-const Popup = ({ children, onClose }) => (
-  <div className="popup-overlay">
-    <div className="popup-content">
-      {children}
-      <button className="close-button" onClick={onClose}>Close</button>
-    </div>
-  </div>
-);
 
 const HardBoard = () => {
   const [mice, setMice] = useState(Array(9).fill(false));
   const [score, setScore] = useState(0);
   const [highScores, setHighScores] = useState([]);
   const [timeLeft, setTimeLeft] = useState(30);
-  const [gameOver, setGameOver] = useState(false);
+  const [gameOver,setGameOver] = useState(false);
   const [gameStarted, setGameStarted] = useState(false);
-
+  const [isPaused, setIsPaused] = useState(false);
+  
   let mouseInterval, timerInterval;
+
+  const navigate = useNavigate();
+  const handleClick1 = () => {
+    navigate('/GameMode')
+  };
 
   const startGame = () => {
     setScore(0);
     setTimeLeft(30);
     setGameOver(false);
     setGameStarted(true);
+    setIsPaused(false);
   };
 
   const stopGame = () => {
@@ -35,6 +37,7 @@ const HardBoard = () => {
     clearInterval(timerInterval);
     setGameOver(true);
     setGameStarted(false);
+    setIsPaused(true);
     submitScore();
   };
 
@@ -45,6 +48,10 @@ const HardBoard = () => {
       newMice[index] = false;
       setMice(newMice);
     }
+  };
+
+  const handleGameOver = () => {
+    setGameOver(true);
   };
 
   useEffect(() => {
@@ -67,76 +74,86 @@ const HardBoard = () => {
           }
           return prevTimeLeft - 1;
         });
-      }, 1000);
+      }, 250);
 
       return () => {
         clearInterval(mouseInterval);
         clearInterval(timerInterval);
       };
     }
-  }, [gameStarted]);
+  }, [gameStarted, isPaused]);
 
-  useEffect(() => {
-    getHighScores().then((scores) => setHighScores(scores));
-  }, []);
+  	useEffect(() => {// Retrieve high scores on component mount
+    	getHighScores().then((scores) => setHighScores(scores));
+ 	 	}, []);
 
-  const submitScore = async () => {
-    await addHighScore('Player', score);
-    const updatedScores = await getHighScores();
-    updatedScores.push({ user: 'Player', score });
-    updatedScores.sort((a, b) => b.score - a.score);
-    setHighScores(updatedScores);
-  };
+		const submitScore = async () => {
+			await addHighScore('Player', score);
+			// Update high scores after submitting
 
-  const navigate = useNavigate();
-  const handleClick1 = () => {
-    navigate('/');
-  };
+			const updateScores = await getHighScores();
+            updateScores.push({ user: 'Player', score });
+            updateScores.sort((a, b) => b.score - a.score);
+            const highestScore = updateScores.length > 0 ? updateScores[0].score : 0;
+			setHighScores([highestScore]);
+		};
+        const handleHome = () => {
+          navigate('/');
+        };
+
+        const handleReplay = () => {
+          setGameOver(false);
+          startGame();
+        };
 
   return (
-    <div>
-      {gameOver && (
-        <Popup>
-          <h2>Game Over!</h2>
-          <p>Your score: {score}</p>
-          <button onClick={() => { setGameOver(false); startGame(); }}>Play Again</button>
-          <button onClick={handleClick1}>Home</button>
-        </Popup>
+  
+      <div>
+        {gameOver && (
+        <GameOverPopup
+          score={score}
+          onReplay={handleReplay}
+          onHome={handleHome}
+        />
       )}
-      <div className="container">
-        <header className="head">
-          <div className="level">
-            <div className="level-indicator">
-              <div className="level-text">Hard</div>
-              <div className="level-label">LEVEL</div>
+      <div class="container">
+        <header class="head">
+            <div class="level">
+                <div class="level-indicator">
+                    <div class="level-text">Hard</div>
+                    <div class="level-label">LEVEL</div>
+                </div>
+                <img
+                  onClick={handleClick1}
+                  src={backArrow}
+                  alt="Back Arrow"
+                  className="back-arrow-hard"
+                />
             </div>
-            <div className="back-button" onClick={handleClick1}>
-              <span className="back-icon">&#8592;</span>
+            <div class="title">WHACK-A-MOUSE!!</div>
+            <div class="score-timer">
+                <span class="timerBar">
+                    <span class="timer" style={{width: `${(timeLeft / 30)* 100}%`}}></span>
+                </span>
+                <div class="high-score">
+                    <span class="high-score-icon">&#127942;</span>
+                    <span class="high-score-value">HIGHSCORE: {highScores.length > 0 ? highScores[0].score : 0}</span>
+                </div>
             </div>
-          </div>
-          <div className="title">WHACK-A-MOUSE!!</div>
-          <div className="score-timer">
-            <span className="timerBar">
-              <span className="timer" style={{ width: `${(timeLeft / 30) * 100}%` }}></span>
-            </span>
-            <div className="high-score">
-              <span className="high-score-icon">&#127942;</span>
-              <span className="high-score-value">HIGHSCORE: {highScores.length > 0 ? highScores[0].score : 0}</span>
-            </div>
-          </div>
         </header>
-        <section className="game-board">
-          <div className="game-area">
-            {mice.map((isMouse, index) => (
-              <Mouse key={index} index={index} isMouse={isMouse} handleMouseClick={handleMouseClick} />
-            ))}
-          </div>
-          <button className="start-button" onClick={startGame} disabled={gameStarted}>Start</button>
-          <button className="start-button" onClick={stopGame} disabled={!gameStarted}>Pause</button>
+        <section class="game-board">
+            <div class="game-area">
+                {mice.map((isMouse, index) => (
+                    <Mouse key={index} index={index} isMouse={isMouse} handleMouseClick={handleMouseClick} />
+                ))}
+            </div>
+            {!gameStarted ? (
+            <button class="start-button" onClick={startGame}>Start</button> ) : (
+            <button class="start-button" onClick={stopGame}>Pause</button>)}
         </section>
-      </div>
     </div>
-  );
+  </div>
+    );
 };
 
 export default HardBoard;
