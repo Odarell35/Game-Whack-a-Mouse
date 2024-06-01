@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { addHighScore, getHighScores } from './scorestorage';
 import Mouse from './mouse-medium.js';
-import 'medium.css';
+import './medium.css';
 import './Home';
 import GameOverPopup from './GameOverPopup.js';
 import backArrow from './Img/back-arrow.png';
@@ -15,6 +15,7 @@ const MediumBoard = () => {
   const [timeLeft, setTimeLeft] = useState(45);
   const [gameOver,setGameOver] = useState(false);
   const [gameStarted, setGameStarted] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
   
   let mouseInterval, timerInterval;
 
