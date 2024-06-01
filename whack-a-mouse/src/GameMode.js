@@ -4,7 +4,7 @@ import "./medium.css";
 import "./Hardmode.css";
 import { useNavigate } from "react-router-dom";
 import mousehammer from "./Img/mouse-hammer.png";
-import backArrow from "./Img/back-arrow.png";
+import backArrow from "./Img/arrow-back.png";
 
 function Home() {
   const navigate = useNavigate();
