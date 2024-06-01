@@ -19,7 +19,7 @@ const EasyBoard = () => {
 
   const navigate = useNavigate();
   const handleClick1 = () => {
-    navigate("/");
+    navigate("/GameMode");
   };
 
   const startGame = () => {
@@ -34,7 +34,9 @@ const EasyBoard = () => {
     clearInterval(mouseInterval);
     clearInterval(timerInterval);
     setGameStarted(false);
+    submitScore();
     setIsPaused(true);
+    
   };
 
   const handleMouseClick = (index) => {
@@ -88,11 +90,12 @@ const EasyBoard = () => {
   };
 
   const handleHome = () => {
-    navigate("/Home");
+    navigate("/");
   };
 
   const handleReplay = () => {
     setGameOver(false);
+    submitScore();
     startGame();
   };
 
