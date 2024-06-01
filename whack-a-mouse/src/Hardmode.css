@@ -17,13 +17,13 @@ body {
     margin-bottom: 20px;
 }
 
-.level {
+.levelh {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.level-indicator {
+.level-indicatorh {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -32,27 +32,27 @@ body {
     border-radius: 10px;
 }
 
-.level-text {
+.level-texth{
     font-size: 24px;
     font-weight: bold;
 }
 
-.level-label {
+.level-labelh {
     font-size: 14px;
     width: 100px;
 }
 
-.back-arrow-hard{
+.back-arrow-hardh{
     margin-bottom: 10px;
     width: 100px;
 }
 
-.back-icon {
+.back-iconh {
     font-size: 24px;
     color: black;
 }
 
-.title {
+.titleh{
     font-size: 48px;
     font-weight: bold;
     margin-top: 20px;
@@ -60,13 +60,13 @@ body {
     color: rgb(247, 200, 28);
 }
 
-.score-timer {
+.score-timerh {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.timerBar {
+.timerBarh {
     background-color: red;
     width: 200px;
     height: 20px;
@@ -75,35 +75,35 @@ body {
     margin-right: 20px;
 }
 
-.timer {
+.timerh {
     background-color: rgb(220, 249, 87);
     width: 50%;
     height: 100%;
 }
 
-.high-score {
+.high-scoreh {
     display: flex;
     align-items: center;
 }
 
-.high-score-icon {
+.high-score-iconh {
     font-size: 24px;
     margin-right: 10px;
 }
 
-.high-score-value {
+.high-score-valueh {
     font-size: 24px;
 }
 
-.game-board {
+.game-boardh {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.game-area {
-    width: 350px;
-    height: 350px;
+.game-areah {
+    width: 500px;
+    height: 450px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3 1fr);
@@ -112,7 +112,7 @@ body {
     margin-bottom: 20px;
 }
 
-.start-button {
+.start-buttonh {
     background-color: rgb(255, 0, 0);
     border: none;
     border-radius: 10px;

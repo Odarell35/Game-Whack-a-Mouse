@@ -118,38 +118,38 @@ const HardBoard = () => {
       )}
       <div class="container">
         <header class="head">
-            <div class="level">
-                <div class="level-indicator">
-                    <div class="level-text">Hard</div>
-                    <div class="level-label">LEVEL</div>
+            <div class="levelh">
+                <div class="level-indicatorh">
+                    <div class="level-texth">Hard</div>
+                    <div class="level-labelh">LEVEL</div>
                 </div>
                 <img
                   onClick={handleClick1}
                   src={backArrow}
                   alt="Back Arrow"
-                  className="back-arrow-hard"
+                  className="back-arrow-hardh"
                 />
             </div>
-            <div class="title">WHACK-A-MOUSE!!</div>
-            <div class="score-timer">
-                <span class="timerBar">
-                    <span class="timer" style={{width: `${(timeLeft / 30)* 100}%`}}></span>
+            <div class="titleh">WHACK-A-MOUSE!!</div>
+            <div class="score-timerh">
+                <span class="timerBarh">
+                    <span class="timerh" style={{width: `${(timeLeft / 30)* 100}%`}}></span>
                 </span>
-                <div class="high-score">
-                    <span class="high-score-icon">&#127942;</span>
-                    <span class="high-score-value">HIGHSCORE: {highScores.length > 0 ? highScores[0].score : 0}</span>
+                <div class="high-scoreh">
+                    <span class="high-score-iconh">&#127942;</span>
+                    <span class="high-score-valueh">HIGHSCORE: {highScores.length > 0 ? highScores[0].score : 0}</span>
                 </div>
             </div>
         </header>
-        <section class="game-board">
-            <div class="game-area">
+        <section class="game-boardh">
+            <div class="game-areah">
                 {mice.map((isMouse, index) => (
                     <Mouse key={index} index={index} isMouse={isMouse} handleMouseClick={handleMouseClick} />
                 ))}
             </div>
             {!gameStarted ? (
-            <button class="start-button" onClick={startGame}>Start</button> ) : (
-            <button class="start-button" onClick={stopGame}>Pause</button>)}
+            <button class="start-buttonh" onClick={startGame}>Start</button> ) : (
+            <button class="start-buttonh" onClick={stopGame}>Pause</button>)}
         </section>
     </div>
   </div>
