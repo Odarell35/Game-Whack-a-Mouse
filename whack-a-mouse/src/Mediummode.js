@@ -113,33 +113,33 @@ const MediumBoard = () => {
       )}
       <div class="container">
         <header class="head">
-            <div class="level">
-                <div class="level-indicator">
-                    <div class="level-text">Medium</div>
-                    <div class="level-label">LEVEL</div>
+            <div class="levelm">
+                <div class="level-indicatorm">
+                    <div class="level-textm">Medium</div>
+                    <div class="level-labelm">LEVEL</div>
                 </div>
                 <img onClick={handleClick1} src={backArrow} alt='Back arrow' className='back-arrow-medium'/>
             </div>
-            <div class="title">WHACK-A-MOUSE!!</div>
-            <div class="score-timer">
-                <span class="timerBar">
-                    <span class="timer" style={{width: `${(timeLeft / 45)* 100}%`}}></span>
+            <div class="titlem">WHACK-A-MOUSE!!</div>
+            <div class="score-timerm">
+                <span class="timerBarm">
+                    <span class="timerm" style={{width: `${(timeLeft / 45)* 100}%`}}></span>
                 </span>
-                <div class="high-score">
-                    <span class="high-score-icon">&#127942;</span>
-                    <span class="high-score-value">HIGHSCORE: {highScores.length > 0 ? highScores[0].score : 0}</span>
+                <div class="high-scorem">
+                    <span class="high-score-iconm">&#127942;</span>
+                    <span class="high-score-valuem">HIGHSCORE: {highScores.length > 0 ? highScores[0].score : 0}</span>
                 </div>
             </div>
         </header>
-        <section class="game-board">
-            <div class="game-area">
+        <section class="game-boardm">
+            <div class="game-aream">
                 {mice.map((isMouse, index) => (
                     <Mouse key={index} index={index} isMouse={isMouse} handleMouseClick={handleMouseClick} />
                 ))}
             </div>
             {!gameStarted ? (
-            <button class="start-button" onClick={startGame} >Start</button>) :(
-            <button class="start-button" onClick={stopGame} >Pause</button>)}
+            <button class="start-buttonm" onClick={startGame} >Start</button>) :(
+            <button class="start-buttonm" onClick={stopGame} >Pause</button>)}
         </section>
     </div>
   </div>
