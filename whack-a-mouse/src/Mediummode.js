@@ -5,8 +5,7 @@ import Mouse from './mouse-medium.js';
 import './medium.css';
 import './Home';
 import GameOverPopup from './GameOverPopup.js';
-import backArrow from './Img/back-arrow.png';
-
+import backArrow from './Img/arrow-back.png';
 
 const MediumBoard = () => {
   const [mice, setMice] = useState(Array(9).fill(false));

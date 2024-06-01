@@ -65,7 +65,7 @@ body {
 }
 
 .timerBarm {
-    background-color: rgb(15, 205, 248);
+    background-color: rgb(255, 0, 0);
     width: 200px;
     height: 20px;
     border-radius: 10px;
@@ -74,9 +74,10 @@ body {
 }
 
 .timerm {
-    background-color: orange;
+    background-color: #3d16f0;
     width: 50%;
     height: 100%;
+    display:block;
 }
 
 .high-scorem {
@@ -100,8 +101,8 @@ body {
 }
 
 .game-aream {
-    width: 400px;
-    height: 400px;
+    width: 350px;
+    height: 350px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);

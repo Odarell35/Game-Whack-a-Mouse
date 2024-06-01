@@ -1,18 +1,18 @@
 .mouse-holem {
-    width: 90%;
-    height: 90%;
+    width: 112%;
+    height: 101%;
     background-image: url('./Img/bubble1.png');
     background-position: center;
     background-size:cover;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     cursor: pointer;
     overflow: hidden;
   }
   
   .Mouse-pawn {
     
-    width: 150px;
+    width: 131px;
     
   }

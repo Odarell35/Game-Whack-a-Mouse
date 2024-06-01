@@ -5,7 +5,7 @@ import Mouse from './mouse-hard.js';
 import './Hardmode.css';
 import './Home.js';
 import GameOverPopup from './GameOverPopup.js';
-import backArrow from './Img/back-arrow.png';
+import backArrow from './Img/arrow-back.png';
 
 
 const HardBoard = () => {

@@ -4,7 +4,7 @@ import { addHighScore, getHighScores } from "./scorestorage";
 import Mouse from "./mouse-easy";
 import GameOverPopup from "./GameOverPopup"; // Import the GameOverPopup component
 import "./easy.css";
-import backArrow from "./Img/back-arrow.png";
+import backArrow from "./Img/arrow-back.png";
 
 const EasyBoard = () => {
   const [mice, setMice] = useState(Array(9).fill(false));
