@@ -44,15 +44,15 @@ body {
 }
 
 .red {
-  background-color: #yellow;
+  background-color: greenyellow;
 }
 
 .pink {
-  background-color: #orange;
+  background-color: orange;
 }
 
 .blue {
-  background-color: #red;
+  background-color: red;
 }
 
 .back-arrow {
