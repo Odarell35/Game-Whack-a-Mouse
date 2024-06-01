@@ -1,7 +1,7 @@
 import React from "react";
 import "./GameMode.css";
 import "./medium.css";
-import "./HardMode.css";
+import "./Hardmode.css";
 import { useNavigate } from "react-router-dom";
 import mousehammer from "./Img/mouse-hammer.png";
 import backArrow from "./Img/back-arrow.png";
