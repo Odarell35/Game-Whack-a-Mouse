@@ -1,0 +1,14 @@
+.mouse-hole {
+  width: 100%;
+  height: 100%;
+  background-image: url("./Img/bubble2.png");
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Mouse-pawn-easy {
+  width: 100px;
+}
