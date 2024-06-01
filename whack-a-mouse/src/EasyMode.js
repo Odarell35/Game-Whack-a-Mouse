@@ -19,7 +19,7 @@ const EasyBoard = () => {
 
   const navigate = useNavigate();
   const handleClick1 = () => {
-    navigate("/GameMode");
+    navigate("/");
   };
 
   const startGame = () => {
