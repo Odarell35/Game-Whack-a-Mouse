@@ -27,7 +27,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: lightblue;
+  background-color: lightbrown;
   padding: 10px;
   border-radius: 10px;
 }
@@ -57,7 +57,7 @@ body {
   font-weight: bold;
   margin-top: 20px;
   margin-bottom: 20px;
-  color: orange;
+  color: darkbrown;
 }
 
 .score-timer {
